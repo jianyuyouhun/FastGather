@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#09cc9f</color>
+    <color name="colorEntry">#666666</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#59a6df</color>
+    <color name="blueDark">#4ea1de</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
+    <color name="gray">#7f7f7f</color>
+    <color name="translucent">#00000000</color>
+
+    <color name="appBackground">#f7f7f7</color>
+    <color name="dialogBackground">#55000000</color>
+
+    <color name="shadow">#5f000000</color>
+    <color name="shadowLight">#3f000000</color>
+    <color name="colorTab">#bfbfbf</color>
+    <color name="colorTabSelect">@color/blue</color>
+
+    <color name="commonPressed">#11222222</color>
+    <color name="lineColor">#ebebeb</color>
+    <color name="textGray">#999999</color>
+    <color name="textTitle">#333333</color>
+    <color name="textContent">#5f5f5f</color>
+    <color name="commonTitle">#777777</color>
+    <color name="commonContent">#333333</color>
+    <color name="commonTips">#5f5f5f</color>
+</resources>

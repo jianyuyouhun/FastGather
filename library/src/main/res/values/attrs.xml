@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_shape_style" format="enum">
+            <enum name="normal" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="SimpleWebView">
+        <attr name="showProgress" format="boolean" />
+        <attr name="progressDrawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="StatusBar">
+        <attr name="statusBackground" format="reference" />
+        <attr name="targetVersion" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="TabItemView">
+        <attr name="itemImage" format="reference" />
+        <attr name="itemImageSelected" format="reference" />
+
+        <attr name="itemText" format="string" />
+        <attr name="itemTextSize" format="dimension" />
+        <attr name="itemTextColor" format="color" />
+        <attr name="itemTextColorSelected" format="color" />
+        <attr name="itemWidth" format="dimension" />
+        <attr name="itemHeight" format="dimension" />
+
+        <attr name="isItemSelected" format="boolean" />
+        <attr name="imagePadding" format="dimension" />
+        <attr name="imagePaddingTop" format="dimension" />
+        <attr name="imagePaddingLeft" format="dimension" />
+        <attr name="imagePaddingRight" format="dimension" />
+        <attr name="imagePaddingBottom" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ProportionLayout">
+        <attr name="scaleSize" format="float" />
+        <attr name="isAdaptive" format="boolean" />
+        <attr name="ppLayoutOrientation">
+            <enum name="HORIZONTAL" value="0" />
+            <enum name="VERTICAL" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="RadiusImageView">
+        <attr name="imageRadius" format="dimension"/>
+        <attr name="leftTopRadius" format="dimension"/>
+        <attr name="rightTopRadius" format="dimension"/>
+        <attr name="rightBottomRadius" format="dimension"/>
+        <attr name="leftBottomRadius" format="dimension"/>
+    </declare-styleable>
+</resources>

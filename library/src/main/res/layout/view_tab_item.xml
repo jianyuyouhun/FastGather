@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"  >
+
+    <LinearLayout
+        android:id="@+id/item_contain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="4dp"
+        android:paddingTop="2dp">
+
+        <ImageView
+            android:id="@+id/tab_item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_dialog_dialer" />
+
+        <TextView
+            android:id="@+id/tab_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            tools:text="首页"
+            android:textColor="#555555"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tab_item_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_alignRight="@id/item_contain"
+        android:layout_alignTop="@id/item_contain"
+        android:layout_marginRight="-4dp"
+        android:background="@drawable/bg_message_unread"
+        android:gravity="center"
+        android:minWidth="16dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
