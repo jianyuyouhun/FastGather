@@ -1,0 +1,26 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="action_bar_margin_horizontal">16dp</dimen>
+    <dimen name="action_bar_margin_vertical">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_padding">12dp</dimen>
+    <dimen name="tips_padding">6dp</dimen>
+    <dimen name="common_view_padding">12dp</dimen>
+    <dimen name="common_view_margin">12dp</dimen>
+    <dimen name="common_view_distance">12dp</dimen>
+    <dimen name="lineSize">1px</dimen>
+    <dimen name="actionBarSize">44dp</dimen>
+    <dimen name="actionBarRightImgWidth">40dp</dimen>
+    <dimen name="actionBarRightImgHeight">44dp</dimen>
+    <dimen name="bottomBarSize">48dp</dimen>
+    <dimen name="actionBarIconPadding">10dp</dimen>
+    <dimen name="top_bar_title_size">20sp</dimen>
+    <dimen name="top_bar_text_size">17sp</dimen>
+    <dimen name="elevation_2dp">2dp</dimen>
+    <dimen name="elevation_4dp">4dp</dimen>
+    <dimen name="rectangle_radius_4dp">4dp</dimen>
+    <dimen name="rectangle_radius_8dp">8dp</dimen>
+    <dimen name="rectangle_radius_12dp">12dp</dimen>
+    <dimen name="rectangle_radius_16dp">16dp</dimen>
+</resources>

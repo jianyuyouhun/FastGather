@@ -17,8 +17,13 @@ public class MyApplication extends JApp {
 
     @Override
     protected boolean setDebugMode() {
-        HttpHolder.isDebug = BuildConfig.DEBUG;
-        FileUtils.APPLICATION_ID = BuildConfig.APPLICATION_ID;
         return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected void initDependencies() {
+        super.initDependencies();
+        HttpHolder.isDebug = isDebug();
+        FileUtils.APPLICATION_ID = BuildConfig.APPLICATION_ID;
     }
 }
