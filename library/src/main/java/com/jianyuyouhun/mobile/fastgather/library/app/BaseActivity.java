@@ -163,18 +163,18 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return dialog
      */
     protected ProgressAction onCreateProgressDialog() {
-        CogProgressDialog dialog = new CogProgressDialog(getContext());
+        DefaultProgressDialog dialog = new DefaultProgressDialog(getContext());
         dialog.setCancelable(false);
         return dialog;
     }
 
-    private class CogProgressDialog extends ProgressDialog implements ProgressAction {
+    private class DefaultProgressDialog extends ProgressDialog implements ProgressAction {
 
-        public CogProgressDialog(Context context) {
+        public DefaultProgressDialog(Context context) {
             super(context);
         }
 
-        public CogProgressDialog(Context context, int theme) {
+        public DefaultProgressDialog(Context context, int theme) {
             super(context, theme);
         }
     }
