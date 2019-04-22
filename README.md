@@ -21,7 +21,7 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.jianyuyouhun:FastGather:1.0'
+	        implementation 'com.github.jianyuyouhun:FastGather:1.2'
 	}
 
 ## 集成情况 ##
