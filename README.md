@@ -21,7 +21,7 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.jianyuyouhun:FastGather:1.0'
+	        implementation 'com.github.jianyuyouhun:FastGather:1.3'
 	}
 
 ## 集成情况 ##
@@ -29,5 +29,6 @@ Add it in your root build.gradle at the end of repositories:
 *	简单的控制器-界面分离设计（manager和activity/fragment）
 *	[OkRequester](https://github.com/jianyuyouhun/OkRequester)，对okhttp的简单封装，将请求处理和结果处理进行解耦
 *	[KotterKnife](https://github.com/JakeWharton/kotterknife)及其扩展（**自定义的一些类中使用lazy策略进行懒加载注入**）
+*	[AnimatedDialog](https://github.com/jianyuyouhun/AnimatedDialog)，带基础动画效果的dialog
 
 #### to be continued
