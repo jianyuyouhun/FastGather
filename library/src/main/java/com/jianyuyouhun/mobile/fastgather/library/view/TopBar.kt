@@ -71,7 +71,7 @@ class TopBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = 
 
         setTitleColor(typedArray.getColor(R.styleable.TopBar_titleColor, getColor(R.color.actionBarTitleColor)))
         setLeftText(typedArray.getString(R.styleable.TopBar_leftText))
-        setLeftColor(typedArray.getColor(R.styleable.TopBar_leftColor, getColor(R.color.textTitle)))
+        setLeftColor(typedArray.getColor(R.styleable.TopBar_leftColor, getColor(R.color.actionBarLeftColor)))
         setBackgroundColor(typedArray.getColor(R.styleable.TopBar_bgColor, getColor(R.color.actionBarColor)))
 
         typedArray.getDrawable(R.styleable.TopBar_leftIcon)?.apply {
