@@ -69,7 +69,7 @@ class TopBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = 
             setTitle(this)
         } ?: setTitle(resources.getString(R.string.app_name))
 
-        setTitleColor(typedArray.getColor(R.styleable.TopBar_titleColor, getColor(R.color.black)))
+        setTitleColor(typedArray.getColor(R.styleable.TopBar_titleColor, getColor(R.color.actionBarTitleColor)))
         setLeftText(typedArray.getString(R.styleable.TopBar_leftText))
         setLeftColor(typedArray.getColor(R.styleable.TopBar_leftColor, getColor(R.color.textTitle)))
         setBackgroundColor(typedArray.getColor(R.styleable.TopBar_bgColor, getColor(R.color.actionBarColor)))
@@ -115,7 +115,7 @@ class TopBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = 
     }
 
     fun addRightText(text: String, tag: String, onClickListener: OnClickListener) {
-        addRightText(text, getColor(R.color.textTitle), 17F, tag, onClickListener)
+        addRightText(text, getColor(R.color.actionBarRightColor), 17F, tag, onClickListener)
     }
 
     fun addRightText(text: String, color: Int, textSize: Float, tag: String, onClickListener: View.OnClickListener) {
