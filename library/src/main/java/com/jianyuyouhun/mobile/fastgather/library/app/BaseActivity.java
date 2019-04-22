@@ -22,6 +22,7 @@ import com.jianyuyouhun.inject.ViewInjector;
 import com.jianyuyouhun.mobile.fastgather.library.utils.ToastUtil;
 import com.jianyuyouhun.mobile.fastgather.library.utils.injector.ManagerInjector;
 import com.jianyuyouhun.mobile.fastgather.library.utils.kt.LoggerKt;
+import com.jianyuyouhun.mobile.fastgather.library.view.dialog.ProgressAction;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ import java.util.List;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    protected ProgressDialog mProgressDialog;
+    protected ProgressAction mProgressDialog;
     private boolean mIsDestroy;
     private boolean mIsFinish;
     private long mLastClickTime;
@@ -115,11 +116,19 @@ public abstract class BaseActivity extends AppCompatActivity {
         mIsDestroy = true;
     }
 
-    public void showProgressDialog() {
+    /**
+     * 打开进度弹窗
+     */
+    public final void showProgressDialog() {
         showProgressDialog("");
     }
 
-    public void showProgressDialog(String message) {
+    /**
+     * 打开进度弹窗
+     *
+     * @param message 提示文案
+     */
+    public final void showProgressDialog(String message) {
         if (mIsDestroy) return;
         initProgressDialog();
         mProgressDialog.setMessage(message);
@@ -128,7 +137,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void dismissProgressDialog() {
+    /**
+     * 关闭进度弹窗
+     */
+    public final void dismissProgressDialog() {
         if (mIsDestroy) return;
         if (mProgressDialog == null) return;
         if (mProgressDialog.isShowing()) {
@@ -136,10 +148,34 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void initProgressDialog() {
+    /**
+     * 初始化进度弹窗
+     */
+    protected final void initProgressDialog() {
         if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(getContext());
-            mProgressDialog.setCancelable(false);
+            mProgressDialog = onCreateProgressDialog();
+        }
+    }
+
+    /**
+     * 构造进度弹窗对象，可重写此方法进行样式的修改
+     *
+     * @return dialog
+     */
+    protected ProgressAction onCreateProgressDialog() {
+        CogProgressDialog dialog = new CogProgressDialog(getContext());
+        dialog.setCancelable(false);
+        return dialog;
+    }
+
+    private class CogProgressDialog extends ProgressDialog implements ProgressAction {
+
+        public CogProgressDialog(Context context) {
+            super(context);
+        }
+
+        public CogProgressDialog(Context context, int theme) {
+            super(context, theme);
         }
     }
 
