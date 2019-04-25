@@ -12,7 +12,6 @@ import com.jianyuyouhun.mobile.fastgather.library.managers.StackManager;
 import com.jianyuyouhun.mobile.fastgather.library.utils.AppUtils;
 import com.jianyuyouhun.mobile.fastgather.library.utils.injector.ManagerInjector;
 import com.jianyuyouhun.mobile.fastgather.library.utils.kt.LoggerKt;
-import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,8 +25,6 @@ import java.util.List;
 public abstract class JApp extends Application {
 
     private static String TAG;
-
-    private static String buglyId;
 
     private static JApp instance;
 
@@ -64,7 +61,6 @@ public abstract class JApp extends Application {
         }
         instance = this;
         isDebug = setDebugMode();
-        buglyId = setBuglyId();
         initExceptionCatcher();
         initDependencies();
         String pidName = AppUtils.getUIPName(this);
@@ -77,33 +73,21 @@ public abstract class JApp extends Application {
     }
 
     /**
-     * 设置bugly崩溃统计
-     * @return
-     */
-    protected String setBuglyId() {
-        return "";
-    }
-
-    /**
      * 第三方框架初始化
      */
     protected void initDependencies() {
 
     }
 
-    private void initExceptionCatcher() {
+    /**
+     * 初始化异常捕获
+     */
+    protected void initExceptionCatcher() {
         if (isDebug) {
             //debug版本   启用崩溃日志捕获
             Thread.UncaughtExceptionHandler handler = Thread.getDefaultUncaughtExceptionHandler();
             ExceptionCaughtAdapter exceptionCaughtAdapter = new ExceptionCaughtAdapter(handler);
             Thread.setDefaultUncaughtExceptionHandler(exceptionCaughtAdapter);
-        } else {
-            try {
-                // 正式版本  启用崩溃提交
-                CrashReport.initCrashReport(this, buglyId, false);
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
         }
     }
 

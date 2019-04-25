@@ -2,9 +2,6 @@ package com.jianyuyouhun.mobile.fastgather;
 
 import com.jianyuyouhun.mobile.okrequester.library.listener.OnJsonResultListener;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public abstract class OnHttpListener<T> extends OnJsonResultListener<T> {
     @Override
     protected int initSuccessCode() {
@@ -16,8 +13,4 @@ public abstract class OnHttpListener<T> extends OnJsonResultListener<T> {
         return -1;
     }
 
-    @Override
-    public JSONObject parseJsonObject(String in) throws JSONException {
-        return super.parseJsonObject(in);
-    }
 }
