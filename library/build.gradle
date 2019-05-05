@@ -41,7 +41,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'com.github.jianyuyouhun:OkRequester:1.3'
     api 'com.github.jianyuyouhun:ViewInjector:1.2.1'
     api 'com.github.jianyuyouhun:AnimatedDialog:1.0.4'
 }
