@@ -7,8 +7,8 @@ import android.webkit.JavascriptInterface;
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseActivity;
 import com.jianyuyouhun.mobile.fastgather.library.utils.ExceptionUtil;
+import com.jianyuyouhun.mobile.fastgather.library.utils.Logger;
 import com.jianyuyouhun.mobile.fastgather.library.utils.ToastUtil;
-import com.jianyuyouhun.mobile.okrequester.library.Logger;
 
 
 /**
