@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.view.OrientationEventListener;
 
-import com.jianyuyouhun.mobile.okrequester.library.Logger;
+import com.jianyuyouhun.mobile.fastgather.library.utils.Logger;
 
 
 public class MyOrientationListener extends OrientationEventListener {
