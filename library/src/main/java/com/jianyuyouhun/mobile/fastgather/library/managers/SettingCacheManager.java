@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseManager;
-import com.jianyuyouhun.mobile.okrequester.library.json.JsonUtil;
+import com.jianyuyouhun.mobile.fastgather.library.utils.json.JsonUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;

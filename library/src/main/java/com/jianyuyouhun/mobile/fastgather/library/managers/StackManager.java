@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseActivity;
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseManager;
-import com.jianyuyouhun.mobile.okrequester.library.Logger;
+import com.jianyuyouhun.mobile.fastgather.library.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.List;

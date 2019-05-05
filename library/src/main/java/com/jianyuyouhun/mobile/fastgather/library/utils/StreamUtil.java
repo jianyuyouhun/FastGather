@@ -1,8 +1,6 @@
 package com.jianyuyouhun.mobile.fastgather.library.utils;
 
 
-import com.jianyuyouhun.mobile.okrequester.library.Logger;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
