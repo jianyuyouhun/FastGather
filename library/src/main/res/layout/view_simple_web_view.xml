@@ -35,7 +35,7 @@
                 android:textSize="17sp"/>
         </LinearLayout>
 
-        <com.gallops.mobile.jmvclibrary.view.webview.ObservableWebView
+        <com.jianyuyouhun.mobile.fastgather.library.view.webview.ObservableWebView
             android:id="@+id/custom_webView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
