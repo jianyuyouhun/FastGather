@@ -3,6 +3,7 @@ package com.jianyuyouhun.mobile.fastgather.library.view.adapter;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.jianyuyouhun.inject.ViewInjector;
 import com.jianyuyouhun.mobile.fastgather.library.utils.injector.ManagerInjector;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +53,11 @@ public abstract class SimpleRecyclerAdapter <T, VH extends SimpleRecyclerAdapter
         notifyDataSetChanged();
     }
 
+    public void addToFirst(T data) {
+        this.data.add(0, data);
+        notifyDataSetChanged();
+    }
+
     public void removeData(T data) {
         this.data.remove(data);
         notifyDataSetChanged();
@@ -60,8 +68,50 @@ public abstract class SimpleRecyclerAdapter <T, VH extends SimpleRecyclerAdapter
         notifyDataSetChanged();
     }
 
+    /**
+     * 替换指定位置的数据
+     *
+     * @param data 新数据
+     * @param pos  位置
+     */
+    public boolean changeItem(T data, int pos) {
+        if (pos >= getItemCount()) {
+            return false;
+        }
+        this.data.remove(pos);
+        this.data.add(pos, data);
+        notifyDataSetChanged();
+        return true;
+    }
+
     public List<T> getData() {
         return data;
+    }
+
+    /**
+     * 获取适配器的最后一项，如果适配器大小等于0，将返回null
+     */
+    @Nullable
+    public T getLastItem() {
+        int count = getItemCount();
+        if (count == 0) {
+            return null;
+        } else {
+            return getItem(count - 1);
+        }
+    }
+
+    /**
+     * 获取适配器的第一项，如果适配器大小等于0，将返回null
+     */
+    @Nullable
+    public T getFirstItem() {
+        int count = getItemCount();
+        if (count == 0) {
+            return null;
+        } else {
+            return getItem(0);
+        }
     }
 
     @Override
@@ -75,19 +125,22 @@ public abstract class SimpleRecyclerAdapter <T, VH extends SimpleRecyclerAdapter
 
     @Deprecated
     @Override
-    public VH onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VH onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+        if (getLayoutId() == 0) {
+            return onCreateViewHolder(null, viewType, parent);
+        }
         View view = LayoutInflater.from(context).inflate(getLayoutId(), parent, false);
-        return onCreateViewHolder(view, viewType);
+        return onCreateViewHolder(view, viewType, parent);
     }
 
     @LayoutRes
     protected abstract int getLayoutId();
 
-    public abstract VH onCreateViewHolder(View view, int viewType);
+    public abstract VH onCreateViewHolder(View view, int viewType, @NonNull ViewGroup parent);
 
     @Deprecated
     @Override
-    public void onBindViewHolder(VH holder, int position) {
+    public void onBindViewHolder(@NotNull VH holder, int position) {
         onBindViewHolder(holder, getItem(position), position);
     }
 
