@@ -273,6 +273,14 @@ public class SimpleWebView extends LinearLayout {
         mWebView.loadUrl(webUrl);
     }
 
+    @SuppressLint("addJavascriptInterface")
+    public void loadDataWithBaseURL(String htmlString) {
+        mWebView.loadDataWithBaseURL( null, htmlString , "text/html", "UTF-8", null) ;
+    }
+
+    public WebView getWebView() {
+        return mWebView;
+    }
 
     public void setCallHiddenWebViewMethod(String name) {
         try {
