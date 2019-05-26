@@ -85,7 +85,7 @@ public abstract class SimpleRecyclerAdapter <T, VH extends SimpleRecyclerAdapter
     }
 
     public List<T> getData() {
-        return data;
+        return new ArrayList<>(data);
     }
 
     /**
