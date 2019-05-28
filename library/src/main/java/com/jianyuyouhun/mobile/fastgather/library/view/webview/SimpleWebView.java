@@ -115,7 +115,7 @@ public class SimpleWebView extends LinearLayout {
             return;
         }
         if (jsInterface == null) {
-            jsInterface = new EmptyJsInterface(getContext());
+            jsInterface = new EmptyJsInterface(getContext(), mWebView);
         }
         mWebView.getSettings().setDefaultTextEncodingName("UTF-8");
         mWebView.getSettings().setUseWideViewPort(true);
@@ -137,6 +137,9 @@ public class SimpleWebView extends LinearLayout {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 notifyTitleChange();
+                if (webViewChangeListener != null) {
+                    webViewChangeListener.onPageFinished(url);
+                }
             }
 
             @Override
@@ -231,7 +234,7 @@ public class SimpleWebView extends LinearLayout {
      * @param isOpenJs
      */
     public void setIsOpenJs(boolean isOpenJs) {
-        setIsOpenJs(isOpenJs, new EmptyJsInterface(getContext()));
+        setIsOpenJs(isOpenJs, new EmptyJsInterface(getContext(), mWebView));
     }
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
@@ -345,6 +348,8 @@ public class SimpleWebView extends LinearLayout {
         void urlIsEmpty(boolean isEmpty);
 
         void urlChange(String webUrl);
+
+        void onPageFinished(String url);
     }
 
     public interface OnTitleChange {

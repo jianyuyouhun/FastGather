@@ -1,6 +1,7 @@
 package com.jianyuyouhun.mobile.fastgather.library.view.webview;
 
 import android.content.Context;
+import android.webkit.WebView;
 
 /**
  * 空的jsInterface，拥有基本的方法
@@ -8,7 +9,8 @@ import android.content.Context;
  */
 
 public final class EmptyJsInterface extends JsInterface {
-    public EmptyJsInterface(Context context) {
-        super(context);
+
+    public EmptyJsInterface(Context context, WebView webView) {
+        super(context, webView);
     }
 }

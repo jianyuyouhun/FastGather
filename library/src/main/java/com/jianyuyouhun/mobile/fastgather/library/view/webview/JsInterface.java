@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseActivity;
 import com.jianyuyouhun.mobile.fastgather.library.utils.ExceptionUtil;
@@ -20,10 +21,16 @@ public abstract class JsInterface {
 
     private Context context;
     private static String TAG;
+    private WebView webView;
 
-    public JsInterface(Context context) {
+    public JsInterface(Context context, WebView webView) {
         this.context = context;
+        this.webView = webView;
         TAG = this.getClass().getSimpleName();
+    }
+
+    protected WebView getWebView() {
+        return webView;
     }
 
     protected Context getContext() {

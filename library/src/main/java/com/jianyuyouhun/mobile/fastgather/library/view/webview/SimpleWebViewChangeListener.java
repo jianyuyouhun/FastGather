@@ -20,4 +20,9 @@ public class SimpleWebViewChangeListener implements SimpleWebView.WebViewChangeL
     public void urlChange(String webUrl) {
 
     }
+
+    @Override
+    public void onPageFinished(String url) {
+
+    }
 }
