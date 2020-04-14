@@ -12,7 +12,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.provider.Settings;
-import android.support.annotation.RequiresPermission;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -28,6 +27,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.annotation.RequiresPermission;
 
 /**
  * app通用处理工具类
@@ -89,7 +90,8 @@ public class AppUtils {
         String m_sDeviceVersion = android.os.Build.VERSION.RELEASE;
         if (m_sDeviceVersion != null && m_sDeviceVersion.length() >= 3) {
             String spiltString = m_sDeviceVersion.substring(0, 3);
-            Pattern pattern = Pattern.compile("^\\d+([\\.]?\\d+)?$");
+            String regex = "^\\d+([\\.]?\\d+)?$";
+            Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(spiltString);
             boolean result = matcher.matches();
             if (result) {
@@ -156,7 +158,9 @@ public class AppUtils {
         if (tm != null) {
             imsi = tm.getSubscriberId();
         }
-        if (null == imsi) imsi = "";
+        if (null == imsi) {
+            imsi = "";
+        }
         return imsi;
     }
 
@@ -330,8 +334,9 @@ public class AppUtils {
         String packageName = context.getPackageName();
 
         List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
-        if (appProcesses == null)
+        if (appProcesses == null) {
             return false;
+        }
         for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
             // The name of the process that this object is associated with.
             if (appProcess.processName.equals(packageName)
@@ -375,7 +380,9 @@ public class AppUtils {
      * @param packageName
      */
     public static boolean isTargetAppInstall(Context context, String packageName) {
-        if (TextUtils.isEmpty(packageName)) return false;
+        if (TextUtils.isEmpty(packageName)) {
+            return false;
+        }
         PackageManager packageManager = context.getPackageManager();
         List<PackageInfo> infos = packageManager.getInstalledPackages(0);
         if (infos != null) {

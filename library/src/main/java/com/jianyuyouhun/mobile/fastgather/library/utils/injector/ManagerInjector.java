@@ -2,7 +2,7 @@ package com.jianyuyouhun.mobile.fastgather.library.utils.injector;
 
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseManager;
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp;
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -37,7 +37,7 @@ public class ManagerInjector {
                     }
 
                     @SuppressWarnings("unchecked")
-                    BaseManager baseManager = JApp.getInstance().getManager((Class<? extends BaseManager>) type);
+                    BaseManager baseManager = AbstractJApp.getInstance().getManager((Class<? extends BaseManager>) type);
 
                     if (baseManager == null) {
                         throw new RuntimeException(type.getSimpleName() + " Manager还未初始化！");

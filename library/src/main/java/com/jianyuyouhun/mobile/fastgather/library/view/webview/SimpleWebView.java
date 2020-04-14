@@ -8,8 +8,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -32,6 +30,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * webView封装
@@ -183,7 +184,9 @@ public class SimpleWebView extends LinearLayout {
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
                 if (!titleText.equals(title)) {
-                    if (webViewChangeListener != null) webViewChangeListener.titleChange(title);
+                    if (webViewChangeListener != null) {
+                        webViewChangeListener.titleChange(title);
+                    }
                     titleText = title;
                 }
                 Map<String, String> urlTitle = new HashMap<>();
@@ -239,7 +242,9 @@ public class SimpleWebView extends LinearLayout {
 
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     public void setIsOpenJs(boolean isOpenJs, JsInterface newJsInterface) {
-        if (newJsInterface != null) jsInterface = newJsInterface;
+        if (newJsInterface != null) {
+            jsInterface = newJsInterface;
+        }
         if (isOpenJs) {
             mWebView.addJavascriptInterface(jsInterface, "JavaScriptInterface");
         } else {
@@ -319,13 +324,16 @@ public class SimpleWebView extends LinearLayout {
      * @param url url
      */
     private boolean matchRegUrl(String url) {
-        return Pattern.compile("^http(s?)://").matcher(url).find();
+        Pattern compile = Pattern.compile("^http(s?)://");
+        return compile.matcher(url).find();
     }
 
     public void destroy() {
         if (mWebView != null) {
             ViewGroup parent = ((ViewGroup) mWebView.getParent());
-            if (parent != null) parent.removeView(mWebView);
+            if (parent != null) {
+                parent.removeView(mWebView);
+            }
             mWebView.removeAllViews();
             mWebView.destroy();
         }

@@ -16,8 +16,9 @@ public class StreamUtil {
         hex = new StringBuilder(hex.toString().toUpperCase());
 
         if (hex.length() < length) {
-            while (hex.length() < length)
+            while (hex.length() < length) {
                 hex.insert(0, "0");
+            }
         } else if (hex.length() > length) {
             hex = new StringBuilder(hex.substring(hex.length() - length));
         }

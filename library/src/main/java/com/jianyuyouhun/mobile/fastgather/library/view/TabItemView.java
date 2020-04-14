@@ -3,10 +3,6 @@ package com.jianyuyouhun.mobile.fastgather.library.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -18,6 +14,11 @@ import android.widget.TextView;
 import com.jianyuyouhun.mobile.fastgather.library.R;
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseFragment;
 import com.jianyuyouhun.mobile.fastgather.library.utils.AppUtils;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 
 /**

@@ -3,12 +3,12 @@ package com.jianyuyouhun.mobile.fastgather.library.app.exception
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.jianyuyouhun.mobile.fastgather.library.utils.kt.lgE
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
@@ -23,17 +23,17 @@ class ExceptionActivity: AppCompatActivity() {
     companion object {
         private val TAG: String = ExceptionActivity::class.java.simpleName
         fun showException(throwable: Throwable) {
-            val app : JApp? = JApp.getInstance()
-            if (app != null && JApp.isDebug()) {
+            val appAbstract : AbstractJApp? = AbstractJApp.getInstance()
+            if (appAbstract != null && AbstractJApp.isDebug()) {
                 val byteArrayOutputStream = ByteArrayOutputStream()
                 throwable.printStackTrace(PrintStream(byteArrayOutputStream))
                 val msg = String(byteArrayOutputStream.toByteArray())
 
                 try {
-                    val intent = Intent(app, ExceptionActivity::class.java)
+                    val intent = Intent(appAbstract, ExceptionActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     intent.putExtra("msg", msg)
-                    app.startActivity(intent)
+                    appAbstract.startActivity(intent)
                 } catch (e : Exception) {
                     lgE(TAG, "异常捕获未在manifest中声明")
                 }

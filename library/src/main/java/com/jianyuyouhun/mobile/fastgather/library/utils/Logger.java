@@ -2,7 +2,7 @@ package com.jianyuyouhun.mobile.fastgather.library.utils;
 
 import android.util.Log;
 
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp;
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp;
 
 /**
  * 日志打印
@@ -11,7 +11,7 @@ import com.jianyuyouhun.mobile.fastgather.library.app.JApp;
 
 public class Logger {
     public static void i(String tag, String msg) {
-        if (JApp.isDebug()) {
+        if (AbstractJApp.isDebug()) {
             int max_str_length = 2001 - tag.length();
             //大于4000时
             while (msg.length() > max_str_length) {
@@ -24,7 +24,7 @@ public class Logger {
     }
 
     public static void e(String tag, String msg) {
-        if (JApp.isDebug()) {
+        if (AbstractJApp.isDebug()) {
             int max_str_length = 2001 - tag.length();
             //大于4000时
             while (msg.length() > max_str_length) {
@@ -37,7 +37,7 @@ public class Logger {
     }
 
     public static void d(String tag, String msg) {
-        if (JApp.isDebug()) {
+        if (AbstractJApp.isDebug()) {
             int max_str_length = 2001 - tag.length();
             //大于4000时
             while (msg.length() > max_str_length) {
@@ -50,7 +50,7 @@ public class Logger {
     }
 
     public static void w(String tag, String msg) {
-        if (JApp.isDebug()) {
+        if (AbstractJApp.isDebug()) {
             int max_str_length = 2001 - tag.length();
             //大于4000时
             while (msg.length() > max_str_length) {

@@ -1,15 +1,16 @@
 package com.jianyuyouhun.mobile.fastgather;
 
-import android.support.annotation.NonNull;
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseManager;
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp;
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp;
 import com.jianyuyouhun.mobile.fastgather.library.utils.FileUtils;
 import com.jianyuyouhun.mobile.okrequester.library.HttpHolder;
 
 import java.util.List;
 
-public class MyApplication extends JApp {
+import androidx.annotation.NonNull;
+
+public class MyApplication extends AbstractJApp {
     @Override
     protected void initManagers(@NonNull List<BaseManager> managerList) {
 

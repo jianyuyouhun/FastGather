@@ -3,7 +3,6 @@ package com.jianyuyouhun.mobile.fastgather.library.app;
 import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 
 import com.jianyuyouhun.mobile.fastgather.library.BuildConfig;
 import com.jianyuyouhun.mobile.fastgather.library.app.exception.ExceptionCaughtAdapter;
@@ -17,16 +16,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 /**
  * app基类
  * Created by wangyu on 2018/3/26.
  */
 
-public abstract class JApp extends Application {
+public abstract class AbstractJApp extends Application {
 
     private static String TAG;
 
-    private static JApp instance;
+    private static AbstractJApp instance;
 
     private static boolean isDebug;
 
@@ -43,7 +44,7 @@ public abstract class JApp extends Application {
         return handler;
     }
 
-    public static JApp getInstance() {
+    public static AbstractJApp getInstance() {
         return instance;
     }
 
@@ -112,8 +113,10 @@ public abstract class JApp extends Application {
     }
 
     private void initCommonManagers(@NonNull List<BaseManager> managerList) {
-        managerList.add(new StackManager());            //activity栈管理
-        managerList.add(new SettingCacheManager());     //app设置缓存管理器，与用户相关的缓存建议另建立manager
+        //activity栈管理
+        managerList.add(new StackManager());
+        //app设置缓存管理器，与用户相关的缓存建议另建立manager
+        managerList.add(new SettingCacheManager());
     }
 
     /**

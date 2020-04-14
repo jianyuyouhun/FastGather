@@ -1,7 +1,7 @@
 package com.jianyuyouhun.mobile.fastgather.library.utils.kt.proxy
 
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseManager
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -17,7 +17,7 @@ fun <Manager : BaseManager> Any.bindManager(cls: Class<Manager>)
         : ReadOnlyProperty<Any, Manager> = require(cls.name, managerFinder)
 
 private val Any.managerFinder: Any.(String) -> BaseManager?
-    get() = { JApp.getInstance().getManager(it) }
+    get() = { AbstractJApp.getInstance().getManager(it) }
 
 private fun managerNotFound(name: String, desc: KProperty<*>): Nothing =
         throw IllegalStateException("Manager Name $name for '${desc.name}' not found.")

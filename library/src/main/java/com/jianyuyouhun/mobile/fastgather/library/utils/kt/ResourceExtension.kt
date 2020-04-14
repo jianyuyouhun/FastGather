@@ -1,12 +1,12 @@
 package com.jianyuyouhun.mobile.fastgather.library.utils.kt
 
 import android.graphics.drawable.Drawable
-import android.support.annotation.ColorInt
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
 import android.view.View
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp
 
 /**
  * resource扩展类
@@ -14,9 +14,9 @@ import com.jianyuyouhun.mobile.fastgather.library.app.JApp
  */
 
 @ColorInt
-fun getColor(@ColorRes colorId: Int): Int = ContextCompat.getColor(JApp.getInstance(), colorId)
+fun getColor(@ColorRes colorId: Int): Int = ContextCompat.getColor(AbstractJApp.getInstance(), colorId)
 
-fun getDrawable(@DrawableRes drawableId: Int): Drawable? = ContextCompat.getDrawable(JApp.getInstance(), drawableId)
+fun getDrawable(@DrawableRes drawableId: Int): Drawable? = ContextCompat.getDrawable(AbstractJApp.getInstance(), drawableId)
 
 fun View.getColor(@ColorRes colorId: Int): Int = ContextCompat.getColor(context, colorId)
 

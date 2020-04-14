@@ -5,11 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +14,12 @@ import android.widget.TextView;
 import com.jianyuyouhun.inject.ViewInjector;
 import com.jianyuyouhun.mobile.fastgather.library.utils.ToastUtil;
 import com.jianyuyouhun.mobile.fastgather.library.utils.injector.ManagerInjector;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 
 /**
  * fragment基类
@@ -101,6 +102,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @NonNull
+    @Override
     public Context getContext() {
         return getBaseActivity();
     }
@@ -151,6 +153,6 @@ public abstract class BaseFragment extends Fragment {
      * @return app的handler
      */
     protected Handler getHandler() {
-        return JApp.getHandler();
+        return AbstractJApp.getHandler();
     }
 }

@@ -79,6 +79,9 @@ public class StackManager extends BaseManager {
     }
 
     public enum AppState {
-        RUNNING, DIED
+        /** app运行状态 */
+        RUNNING,
+        DIED,
+        ;
     }
 }

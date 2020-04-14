@@ -1,8 +1,6 @@
 package com.jianyuyouhun.mobile.fastgather.library.view.adapter;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,9 @@ import com.jianyuyouhun.mobile.fastgather.library.utils.injector.ManagerInjector
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 /**
  * 适配器基类封装

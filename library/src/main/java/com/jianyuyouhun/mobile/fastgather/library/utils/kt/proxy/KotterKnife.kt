@@ -2,9 +2,9 @@ package com.jianyuyouhun.mobile.fastgather.library.utils.kt.proxy
 
 import android.app.Activity
 import android.app.Dialog
-import android.support.v4.app.DialogFragment
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.jianyuyouhun.mobile.fastgather.library.app.BaseFragment
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty

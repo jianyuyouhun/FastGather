@@ -53,29 +53,33 @@ public class ProportionLayout extends ViewGroup {
 
     @Override
     public void addView(View child) {
-        if (getChildCount() > 0)
+        if (getChildCount() > 0) {
             throw new IllegalStateException("ProportionLayout can host only one direct child");
+        }
         super.addView(child);
     }
 
     @Override
     public void addView(View child, int index) {
-        if (getChildCount() > 0)
+        if (getChildCount() > 0) {
             throw new IllegalStateException("ProportionLayout can host only one direct child");
+        }
         super.addView(child, index);
     }
 
     @Override
     public void addView(View child, ViewGroup.LayoutParams params) {
-        if (getChildCount() > 0)
+        if (getChildCount() > 0) {
             throw new IllegalStateException("ProportionLayout can host only one direct child");
+        }
         super.addView(child, params);
     }
 
     @Override
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
-        if (getChildCount() > 0)
+        if (getChildCount() > 0) {
             throw new IllegalStateException("ProportionLayout can host only one direct child");
+        }
         super.addView(child, index, params);
     }
 
@@ -135,24 +139,27 @@ public class ProportionLayout extends ViewGroup {
         if (orientation == VERTICAL) {
             // 垂直方向为基准
             float tempWidth = height * scaleSize;
-            if (tempWidth > width && isAdaptive)
+            if (tempWidth > width && isAdaptive) {
                 scale = width / tempWidth;
+            }
 
             newWidth = (int) (height * scaleSize * scale);
             newHeight = (int) (height * scale);
         } else {
             // 水平方向为基准
             float tempHeight = width * scaleSize;
-            if (tempHeight > height && isAdaptive)
+            if (tempHeight > height && isAdaptive) {
                 scale = height / tempHeight;
+            }
 
             newHeight = (int) (width * scale * scaleSize);
             newWidth = (int) (width * scale);
         }
 
-        if (getChildCount() > 0)
+        if (getChildCount() > 0) {
             getChildAt(0).measure(MeasureSpec.makeMeasureSpec(newWidth, MeasureSpec.EXACTLY),
                     MeasureSpec.makeMeasureSpec(newHeight, MeasureSpec.EXACTLY));
+        }
 
         setMeasuredDimension(newWidth, newHeight);
     }

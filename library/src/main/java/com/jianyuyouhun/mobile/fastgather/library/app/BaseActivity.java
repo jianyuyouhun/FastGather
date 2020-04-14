@@ -10,10 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
@@ -25,6 +21,11 @@ import com.jianyuyouhun.mobile.fastgather.library.utils.kt.LoggerKt;
 import com.jianyuyouhun.mobile.fastgather.library.view.dialog.ProgressAction;
 
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * activity基类
@@ -129,7 +130,9 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param message 提示文案
      */
     public final void showProgressDialog(String message) {
-        if (mIsDestroy) return;
+        if (mIsDestroy) {
+            return;
+        }
         initProgressDialog();
         mProgressDialog.setMessage(message);
         if (!mProgressDialog.isShowing()) {
@@ -141,8 +144,12 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 关闭进度弹窗
      */
     public final void dismissProgressDialog() {
-        if (mIsDestroy) return;
-        if (mProgressDialog == null) return;
+        if (mIsDestroy) {
+            return;
+        }
+        if (mProgressDialog == null) {
+            return;
+        }
         if (mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
@@ -203,8 +210,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         String packageName = getApplicationContext().getPackageName();
 
         List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
-        if (appProcesses == null)
+        if (appProcesses == null) {
             return false;
+        }
         for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
             // The name of the process that this object is associated with.
             if (appProcess.processName.equals(packageName)
@@ -222,8 +230,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void hideSoftInput() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         View currentFocus = this.getCurrentFocus();
-        if (currentFocus == null)
+        if (currentFocus == null) {
             return;
+        }
         IBinder windowToken = currentFocus.getWindowToken();
         imm.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS);
     }
@@ -345,6 +354,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return app的全局handler
      */
     protected Handler getHandler() {
-        return JApp.getHandler();
+        return AbstractJApp.getHandler();
     }
 }

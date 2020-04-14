@@ -114,8 +114,9 @@ public class JsonUtil {
                 for (int i = 0; i < length; i++) {
                     Object arrayValue = Array.get(target, i);
                     Object value = getJsonObject(arrayValue);
-                    if (value != null)
+                    if (value != null) {
                         jsonArray.put(value);
+                    }
                 }
                 result = jsonArray;
             } else if (Collection.class.isAssignableFrom(fieldType)) {
@@ -124,8 +125,9 @@ public class JsonUtil {
                 JSONArray jsonArray = new JSONArray();
                 for (Object object : list) {
                     Object value = getJsonObject(object);
-                    if (value != null)
+                    if (value != null) {
                         jsonArray.put(value);
+                    }
                 }
                 result = jsonArray;
             } else if (Map.class.isAssignableFrom(fieldType)) {
@@ -210,8 +212,9 @@ public class JsonUtil {
                             continue;
                         }
 
-                        if (!field.isAccessible())
+                        if (!field.isAccessible()) {
                             field.setAccessible(true);
+                        }
 
                         String fieldName;
                         if (field.isAnnotationPresent(JsonField.class)) {

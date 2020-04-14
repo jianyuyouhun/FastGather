@@ -24,7 +24,7 @@ public abstract class BaseManager {
     }
 
     protected  <M extends BaseManager> M getManager(Class<M> cls) {
-        return JApp.getInstance().getManager(cls);
+        return AbstractJApp.getInstance().getManager(cls);
     }
 
     protected Context getApplicationContext() {

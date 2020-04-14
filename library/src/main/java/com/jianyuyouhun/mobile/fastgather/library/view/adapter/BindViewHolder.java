@@ -1,8 +1,9 @@
 package com.jianyuyouhun.mobile.fastgather.library.view.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 /**
  * bindView放在ViewHolder内部执行

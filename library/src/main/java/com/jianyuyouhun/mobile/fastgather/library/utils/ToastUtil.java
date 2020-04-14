@@ -1,9 +1,10 @@
 package com.jianyuyouhun.mobile.fastgather.library.utils;
 
-import android.support.annotation.StringRes;
 import android.widget.Toast;
 
-import com.jianyuyouhun.mobile.fastgather.library.app.JApp;
+import com.jianyuyouhun.mobile.fastgather.library.app.AbstractJApp;
+
+import androidx.annotation.StringRes;
 
 
 /**
@@ -15,12 +16,12 @@ public class ToastUtil {
 
     private static Toast mLastToast;
     public static void showToast(@StringRes int msgId) {
-        showToast(JApp.getInstance().getString(msgId));
+        showToast(AbstractJApp.getInstance().getString(msgId));
     }
 
     public static void showToast(String msg) {
         cancelToast();
-        mLastToast = Toast.makeText(JApp.getInstance(), msg, Toast.LENGTH_SHORT);
+        mLastToast = Toast.makeText(AbstractJApp.getInstance(), msg, Toast.LENGTH_SHORT);
         mLastToast.show();
     }
 
