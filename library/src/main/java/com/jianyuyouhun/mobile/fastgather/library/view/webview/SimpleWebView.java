@@ -8,11 +8,13 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.DownloadListener;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -54,10 +56,17 @@ public class SimpleWebView extends LinearLayout {
     private String mCurrentUrl;
     private OnTitleChange mOnTitleChange;
 
-    private String originUrl = ""; //最开始打开界面时的url
+    /**
+     * 最开始打开界面时的url
+     */
+    private String originUrl = "";
 
     private String errorUrl;
     private JsInterface jsInterface;
+    /**
+     * 是否接受ssl错误
+     */
+    private boolean acceptSslError = false;
 
     public SimpleWebView(@NonNull Context context) {
         this(context, null);
@@ -165,6 +174,15 @@ public class SimpleWebView extends LinearLayout {
                 mNetErrorLayout.setVisibility(VISIBLE);
                 errorUrl = failingUrl;
             }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                if (acceptSslError) {
+                    handler.proceed();
+                } else {
+                    super.onReceivedSslError(view, handler, error);
+                }
+            }
         });
 
         mWebView.setWebChromeClient(new WebChromeClient() {
@@ -213,6 +231,14 @@ public class SimpleWebView extends LinearLayout {
         } else {
             mWebView.loadUrl(errorUrl);
         }
+    }
+
+    public void setAcceptSslError(boolean acceptSslError) {
+        this.acceptSslError = acceptSslError;
+    }
+
+    public boolean isAcceptSslError() {
+        return acceptSslError;
     }
 
     public String getOriginUrl() {
